@@ -57,10 +57,11 @@ class Blueprint:
         """
 
         uri = '/blueprint/api/blueprints/'
-        j = session._request(f'{session.baseurl}{uri}')
-        if 'objects' in j:
-            return j['objects']
-        return []
+        return session._request(url=f'{session.baseurl}{uri}')['content']
+        #j = session._request(f'{session.baseurl}{uri}')
+        #if 'objects' in j:
+        #    return j['objects']
+        #return []
 
     @classmethod
     def describe(cls, session, blueprint_id):
